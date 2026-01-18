@@ -1,0 +1,61 @@
+# Git attributes for AI Workspace
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+
+# Documentation
+*.md text
+*.txt text
+README text
+
+# Configuration files
+*.json text
+*.yaml text
+*.yml text
+*.toml text
+*.xml text
+.gitignore text
+.gitattributes text
+.env.example text
+
+# Programming languages
+*.py text
+*.js text
+*.ts text
+*.jsx text
+*.tsx text
+*.go text
+*.rs text
+*.c text
+*.h text
+*.cpp text
+*.hpp text
+
+# Web files
+*.html text
+*.css text
+*.scss text
+*.sass text
+*.less text
+*.svg text
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+
+# Diff settings for better readability
+*.md diff=markdown
+*.py diff=python
+*.js diff=javascript

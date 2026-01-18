@@ -1,0 +1,100 @@
+name: Web Application Template
+type: web
+description: Full-stack web application with React and Node.js
+
+structure:
+  - src/
+    - components/
+    - pages/
+    - hooks/
+    - utils/
+    - styles/
+    - services/
+  - server/
+    - routes/
+    - controllers/
+    - models/
+    - middleware/
+    - utils/
+  - tests/
+    - unit/
+    - integration/
+    - e2e/
+  - public/
+  - docs/
+  - .github/
+    - workflows/
+
+files:
+  - path: package.json
+    content: |
+      {
+        "name": "{{PROJECT_NAME}}",
+        "version": "0.1.0",
+        "private": true,
+        "scripts": {
+          "dev": "vite",
+          "build": "vite build",
+          "test": "vitest",
+          "lint": "eslint src/",
+          "format": "prettier --write ."
+        }
+      }
+
+  - path: .gitignore
+    content: |
+      node_modules/
+      dist/
+      .env
+      .env.local
+      *.log
+      .DS_Store
+
+  - path: .env.example
+    content: |
+      NODE_ENV=development
+      PORT=3000
+      DATABASE_URL=postgresql://localhost/{{PROJECT_NAME}}
+      JWT_SECRET=your-secret-here
+
+  - path: docker-compose.yml
+    content: |
+      version: '3.8'
+      services:
+        app:
+          build: .
+          ports:
+            - "3000:3000"
+          environment:
+            - NODE_ENV=development
+          volumes:
+            - .:/app
+            - /app/node_modules
+
+        db:
+          image: postgres:15-alpine
+          environment:
+            POSTGRES_DB: {{PROJECT_NAME}}
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+          ports:
+            - "5432:5432"
+
+tech_stack:
+  frontend:
+    - React 18
+    - TypeScript
+    - Vite
+    - Tailwind CSS
+    - React Router
+    - Zustand
+  backend:
+    - Node.js
+    - Express
+    - TypeScript
+    - Prisma
+    - PostgreSQL
+  testing:
+    - Vitest
+    - React Testing Library
+    - Playwright

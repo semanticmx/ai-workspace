@@ -1,0 +1,172 @@
+# AI Workspace Git Ignore File
+# Main repo tracks system files, global configs, and templates
+# Projects are managed as separate repositories
+
+# ==========================
+# Project-specific content
+# ==========================
+# Ignore all project contents but keep the projects folder
+projects/*
+!projects/.gitkeep
+
+# Ignore active project symlinks
+active-projects/*
+!active-projects/.gitkeep
+
+# ==========================
+# Environment and secrets
+# ==========================
+.env
+.env.*
+*.env
+!.env.example
+
+# API keys and credentials
+**/credentials.json
+**/secrets.yaml
+**/secrets.json
+**/.secrets/
+
+# ==========================
+# OS-specific files
+# ==========================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==========================
+# Editor and IDE files
+# ==========================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+tags
+[._]*.un~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ==========================
+# Logs and temporary files
+# ==========================
+*.log
+*.pid
+*.seed
+*.pid.lock
+logs/
+temp/
+tmp/
+cache/
+
+# ==========================
+# Backup files
+# ==========================
+*.backup
+*.bak
+*.old
+*.orig
+*.save
+*.swp
+*.tmp
+backup/
+backups/
+
+# ==========================
+# MCP server runtime files
+# ==========================
+mcp-servers/*/node_modules/
+mcp-servers/*/.cache/
+mcp-servers/*/dist/
+mcp-servers/*/build/
+
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# ==========================
+# Node.js
+# ==========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# ==========================
+# Claude/AI specific
+# ==========================
+.claude-cache/
+.ai-cache/
+*.claude-session
+claude-output/
+
+# ==========================
+# Git submodules note
+# ==========================
+# Each project in projects/ should be its own git repository
+# Use git submodule add <repo-url> projects/<project-name>
+# to add existing project repos as submodules

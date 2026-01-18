@@ -1,0 +1,33 @@
+{
+  "description": "Global MCP servers available to all projects",
+  "mcpServers": {
+    "workspace": {
+      "description": "Access to AI workspace for planning and documentation",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem"],
+      "env": {
+        "ALLOWED_DIRECTORIES": "${HOME}/ai-workspace",
+        "READONLY": "false"
+      }
+    },
+    "github": {
+      "description": "GitHub operations for all projects",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "aws-docs": {
+      "description": "AWS documentation reference",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-aws-docs"],
+      "env": {}
+    }
+  },
+  "globalSettings": {
+    "timeout": 30000,
+    "retryCount": 3,
+    "logLevel": "info"
+  }
+}
