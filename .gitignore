@@ -13,6 +13,15 @@ projects/*
 active-projects/*
 !active-projects/.gitkeep
 
+# Ignore TODO contents (may contain sensitive info)
+todos/active/*
+!todos/active/.gitkeep
+todos/completed/*
+!todos/completed/.gitkeep
+todos/blocked/*
+!todos/blocked/.gitkeep
+!todos/README.md
+
 # ==========================
 # Environment and secrets
 # ==========================

@@ -17,6 +17,18 @@ load_context() {
         context+="\n\n"
     fi
 
+    # Load all global rules
+    if [ -d "$WORKSPACE/global/rules" ]; then
+        context+="=== GLOBAL RULES ===\n"
+        for rule in "$WORKSPACE/global/rules"/*.md; do
+            if [ -f "$rule" ]; then
+                context+="--- $(basename $rule .md) ---\n"
+                context+=$(cat "$rule")
+                context+="\n\n"
+            fi
+        done
+    fi
+
     # Check if we're in a GitHub project
     if [[ "$CURRENT_DIR" == *"/GitHub/"* ]] && [ -f ".claude/workspace-link" ]; then
         PROJECT_WORKSPACE=$(cat .claude/workspace-link)

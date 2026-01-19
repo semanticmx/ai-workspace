@@ -15,8 +15,14 @@ ai-workspace/
 │       ├── planning/       # Requirements & architecture
 │       ├── claude/         # Project AI configs
 │       └── deploy/         # Deployment configs
+├── 📝 todos/               # Manual task tracking
+│   ├── active/            # Current TODOs
+│   ├── completed/         # Archived TODOs
+│   └── blocked/           # Waiting on dependencies
 ├── 🔗 active-projects/     # Current project links
 └── 🛠️ system/             # Tools and automation
+    ├── scripts/           # Automation scripts
+    └── prompts/           # AI prompt templates
 ```
 
 ## 🎯 Quick Start
@@ -27,6 +33,7 @@ ai-workspace/
 export AI_WORKSPACE=$HOME/ai-workspace
 export GITHUB_DIR=$HOME/GitHub
 alias ai-plan="$AI_WORKSPACE/system/scripts/ai-plan.sh"
+alias execute-tasks="$AI_WORKSPACE/system/scripts/execute-tasks.sh"
 
 # Reload shell
 source ~/.zshrc
@@ -52,6 +59,10 @@ ai-plan deploy my-awesome-app --github-account myusername
 # 6. Start development
 cd ~/GitHub/myusername/my-awesome-app
 claude-code "Start development with context"
+
+# 7. Execute tasks with TDD (optional)
+git checkout -b feature/us-001-description
+execute-tasks my-awesome-app us-001
 ```
 
 ### Existing Project Import
@@ -93,6 +104,7 @@ ai-plan new existing-project
 | `ai-plan activate` | Set active project | `ai-plan activate my-app` |
 | `ai-plan status` | Show project status | `ai-plan status my-app` |
 | `ai-plan sync` | Sync configs | `ai-plan sync my-app` |
+| `execute-tasks` | Execute user story tasks with TDD | `execute-tasks my-app us-001` |
 
 ## 🗂️ Directory Structure
 
@@ -148,6 +160,10 @@ When Claude starts in a project directory:
 
 ### MCP Server Priority
 1. Global servers (always available)
+   - Workspace filesystem access
+   - GitHub integration
+   - AWS documentation
+   - Brave web search (requires API key)
 2. Project servers (override/extend global)
 3. Local servers (highest priority)
 
@@ -265,6 +281,6 @@ claude-code "Update TECH-STACK.md to include new framework"
 
 ---
 
-**Version**: 2.1.0
+**Version**: 2.2.0
 **Updated**: 2026-01-17
-**Status**: Enhanced with requirements-driven generation
+**Status**: Enhanced with TDD task execution and TODO management
